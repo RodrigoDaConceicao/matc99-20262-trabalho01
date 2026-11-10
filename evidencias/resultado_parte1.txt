@@ -1,0 +1,34 @@
+------------------------------------------------------------------------
+MATC99 - TRABALHO 01 - PARTE I: CRIPTOGRAFIA AES-GCM
+Executado em: 09/11/2026 19:06:38
+------------------------------------------------------------------------
+
+[1] Documento criado: contrato_comercial.txt (1546 bytes).
+[2] Chave AES-256 gerada e salva em: chaves/aes/chave_aes_gcm.key
+    Chave (hex): f5a0cd7e956b558b43652d590b6b977e69b59fa67cf9caa7f98272a7db889e31
+    Nonce (hex): 4ec15d9f1cccc59eeebe1710
+[3] Ciphertext gerado: contrato_comercial.gcm
+    Formato do arquivo: [nonce 12 B][ciphertext][tag 16 B]
+    Tamanho do ciphertext+tag: 1562 bytes
+    Início do ciphertext (hex): a4f546c7f2e7e688d61f5b1af55c83359fc28b0a5f11ece7 ...
+
+[4] DESCRIPTOGRAFIA COM A CHAVE CORRETA
+    Status: SUCESSO
+    Integridade do texto recuperado: idêntico ao original
+    Arquivo recuperado: criptografia/contrato_comercial_descriptografado.txt
+
+[5] TESTE DE INTEGRIDADE: ciphertext com 1 bit alterado
+    Status: FALHA — InvalidTag (InvalidTag)
+    A tag de autenticação não corresponde: adulteração detectada.
+
+[6] TESTE DE AUTENTICAÇÃO: chave INCORRETA (aleatória, 256 bits)
+    Chave incorreta (hex): 165bb4c3e83954ee17528c86f3496d153e14523091cedc976941a8b97136d0c3
+    Status: FALHA — InvalidTag (InvalidTag)
+    A chave não é a chave correta: autenticação do bloco falhou.
+
+------------------------------------------------------------------------
+RESUMO DOS RESULTADOS (PARTE I)
+  Descriptografia com chave correta ........: SUCESSO
+  Ciphertext adulterado (1 bit) ............: REJEITADO (InvalidTag)
+  Chave incorreta ..........................: REJEITADO (InvalidTag)
+------------------------------------------------------------------------

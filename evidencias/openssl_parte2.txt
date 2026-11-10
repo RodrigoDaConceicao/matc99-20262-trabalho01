@@ -1,0 +1,45 @@
+﻿Evidências complementares — OpenSSL 3.6.3 (CLI) — RSA 2048 / SHA-256
+Executado em: 09/11/2026
+
+------------------------------------------------------------
+[1] openssl verify -CAfile certificados\ca_xyzw\certificado_ca_xyzw.pem
+                        certificados\parceiro_alpha\certificado_parceiro_alpha.pem
+Saida:
+certificados\parceiro_alpha\certificado_parceiro_alpha.pem: OK
+
+------------------------------------------------------------
+[2] openssl verify -CAfile certificados\ca_xyzw\certificado_ca_xyzw.pem
+                        certificados\parceiro_beta\certificado_parceiro_beta.pem
+Saida:
+CN=Parceiro Beta Ltda.
+error 20 at 0 depth lookup: unable to get local issuer certificate
+error certificados\parceiro_beta\certificado_parceiro_beta.pem: verification failed
+
+------------------------------------------------------------
+[3] openssl verify -CAfile certificados\ca_faketrust\certificado_ca_faketrust.pem
+                        certificados\parceiro_beta\certificado_parceiro_beta.pem
+Saida:
+certificados\parceiro_beta\certificado_parceiro_beta.pem: OK
+
+------------------------------------------------------------
+[4] openssl dgst -sha256 -verify chaves\chave_pub_alpha.pem
+                        -signature assinaturas\caso_A_contrato_original.sig
+                        documentos\contrato_comercial.txt
+Saida:
+Verified OK
+
+------------------------------------------------------------
+[5] openssl dgst -sha256 -verify chaves\chave_pub_alpha.pem
+                        -signature assinaturas\caso_A_contrato_original.sig
+                        documentos\contrato_comercial_alterado.txt
+Saida:
+Verification failure
+64640000:error:02000068:rsa routines:ossl_rsa_verify:bad signature:../openssl-3.6.3/crypto/rsa/rsa_sign.c:441:
+64640000:error:1C880004:Provider routines:rsa_verify_directly:RSA lib:providers/implementations/signature/rsa_sig.c:1057:
+
+------------------------------------------------------------
+[6] openssl dgst -sha256 -verify chaves\chave_pub_beta.pem
+                        -signature assinaturas\caso_C_contrato_para_beta.sig
+                        documentos\contrato_comercial.txt
+Saida:
+Verified OK

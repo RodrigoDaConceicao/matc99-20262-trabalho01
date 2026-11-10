@@ -1,0 +1,44 @@
+CONTRATO DE PRESTAÇÃO DE SERVIÇOS DE TECNOLOGIA
+================================================================
+
+Contrato nº 2026-0147 — XYZW Tecnologia S.A. / Cliente Fictício Ltda.
+
+1. PARTES
+   CONTRATADA: XYZW Tecnologia S.A., CNPJ 12.345.678/0001-90, com sede
+   em São Paulo/SP.
+   CONTRATANTE: Cliente Fictício Ltda., CNPJ 98.765.432/0001-10, com
+   sede em Belo Horizonte/MG.
+
+2. OBJETO
+   A prestação de serviços de desenvolvimento, implantação e
+   manutenção de sistemas de informação, incluindo suporte técnico
+   remoto e on-site, no período de 12 (doze) meses.
+
+3. VALOR E CONDIÇÕES DE PAGAMENTO
+   O valor total do contrato é de R$ 480.000,00 (quatrocentos e
+   oitenta mil reais), pagável em 12 parcelas mensais de R$ 40.000,00,
+   vencidas no dia 10 de cada mês.
+
+4. NÍVEL DE SERVIÇO (SLA)
+   Disponibilidade mínima de 99,5% para os sistemas críticos, com
+   multa de 1% do valor mensal por ponto percentual de indisponibilidade
+   não atendida.
+
+5. PROTEÇÃO DE DADOS E CONFIDENCIALIDADE
+   As partes se obrigam a manter sigilo sobre informações comerciais e
+   a tratar dados pessoais em conformidade com a LGPD (Lei nº
+   13.709/2018).
+
+6. VIGÊNCIA
+   Este contrato vigorará por 12 (doze) meses, contados da assinatura,
+   podendo ser prorrogado por mútuo acordo.
+
+Assinam o presente instrumento em duas vias de igual teor e forma.
+
+São Paulo/SP, 10 de outubro de 2026.
+
+__________________________________
+XYZW Tecnologia S.A.
+
+__________________________________
+Cliente Fictício Ltda.

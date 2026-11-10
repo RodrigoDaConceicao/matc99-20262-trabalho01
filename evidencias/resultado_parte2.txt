@@ -1,0 +1,44 @@
+------------------------------------------------------------------------
+MATC99 - TRABALHO 01 - PARTE II: ASSINATURAS DIGITAIS E CERTIFICADOS
+Data de referência da verificação: 09/11/2026
+------------------------------------------------------------------------
+
+[A] INFRAESTRUTURA DE PKI (ambientes de teste autorizados)
+  CA CONFIÁVEL gerada: 'Autoridade Certificadora XYZW Tecnologia S.A.' (RSA 2048, autoassinada, CA:TRUE)
+  CA NÃO CONFIÁVEL gerada: 'Autoridade Certificadora FakeTrust Ltda.' (RSA 2048, autoassinada, CA:TRUE)
+  Certificado 'Parceiro Alpha Ltda.' emitido pela CA XYZW (confiável).
+  Certificado 'Parceiro Beta Ltda.' emitido pela CA FakeTrust (NÃO confiável).
+  Serial (CA XYZW)    : 314301323040604932626522160607974408037026994452
+  Serial (CA FakeTrust): 55989275827199002521973837338015517547990851964
+  Serial (Alpha)       : 52307579168246725498231265773791987520261942663
+  Serial (Beta)        : 442281476596406969453080015388427707680098321601
+
+------------------------------------------------------------------------
+CASO A — documento original, assinatura correta, certificado confiável
+  Assinatura  : assinatura VÁLIDA (RSA 2048 / SHA-256, PKCS#1 v1.5)
+  Cadeia      : cadeia VÁLIDA — 2 certificado(s) na cadeia; raiz: <Name(CN=Autoridade Certificadora XYZW Tecnologia S.A.)>
+  DECISÃO     : ACEITAR — autenticidade, integridade e origem confiáveis.
+
+------------------------------------------------------------------------
+CASO B — documento alterado após a assinatura
+  Adulteração simulada: inserida a 'CLÁUSULA ADICIONAL' após a assinatura.
+  (Assinatura reutilizada do Caso A sobre o documento ORIGINAL)
+  Assinatura  : assinatura INVÁLIDA (InvalidSignature)
+  Cadeia      : cadeia VÁLIDA — 2 certificado(s) na cadeia; raiz: <Name(CN=Autoridade Certificadora XYZW Tecnologia S.A.)>
+  DECISÃO     : REJEITAR — assinatura não cobre o documento apresentado.
+
+------------------------------------------------------------------------
+CASO C — assinatura válida, certificado emitido por CA NÃO confiável
+  Assinatura (chave pública do certificado)   : assinatura VÁLIDA (RSA 2048 / SHA-256, PKCS#1 v1.5)
+  Cadeia contra store da CA XYZW (confiável)  : cadeia INVÁLIDA — VerificationError: validation failed: candidates exhausted: all candidates exhausted with no interior errors
+  Controle: cadeia contra store da FakeTrust  : cadeia VÁLIDA — 2 certificado(s) na cadeia; raiz: <Name(CN=Autoridade Certificadora FakeTrust Ltda.)>
+  DECISÃO     : REJEITAR — a assinatura é matematicamente válida, mas o
+                certificado não se ancora em CA confiável: não é possível
+                confiar na identidade do signatário.
+
+------------------------------------------------------------------------
+RESUMO DOS RESULTADOS (PARTE II)
+  CASO A: assinatura OK | cadeia OK | DECISÃO: ACEITAR
+  CASO B: assinatura FALHA | cadeia OK | DECISÃO: REJEITAR
+  CASO C: assinatura OK | cadeia FALHA | DECISÃO: REJEITAR
+------------------------------------------------------------------------
